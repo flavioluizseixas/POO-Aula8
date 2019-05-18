@@ -15,6 +15,10 @@ public class Empresa {
         this.nome = nome;
     }
 
+    public String getNome() {
+        return this.nome;
+    }
+
     public void admitir(Funcionario f) {
         funcionarios.add(f);
     }
