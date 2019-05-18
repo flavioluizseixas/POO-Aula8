@@ -2,10 +2,10 @@
     "configurations": [
         {
             "type": "java",
-            "name": "Debug (Launch) - External Terminal",
+            "name": "CodeLens (Launch) - App",
             "request": "launch",
-            "console": "externalTerminal",
-            "mainClass": "app.App"
+            "mainClass": "app.App",
+            "projectName": "Aula9"
         },
         {
             "type": "java",

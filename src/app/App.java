@@ -1,26 +1,33 @@
 package app;
 
 import br.com.poo.rh.*;
-import br.com.poo.servicos.*;
+import br.com.poo.exceptions.*;
+
+//import br.com.poo.servicos.*;
 //java -cp '.' 'app.App'
 public class App {
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) {
 
-        Gerente g = new Gerente("Joao", "123456", 10000, "123123");
-        Autenticavel a = g;
-        Funcionario f = g;
+        Empresa emp = new Empresa("FuturoDigital4.0");
 
-        if (a instanceof Autenticavel) {
-            System.out.println("A classe é autenticável");
+        Gerente    g = new Gerente("Joao", "123456", 10000, "123123");
+        Secretario s = new Secretario("Jose", "654321", 5000);
+        Engenheiro e = new Engenheiro("Maria", "434343", 7000);
+
+        emp.admitir(g);
+        emp.admitir(s);
+        emp.admitir(e);
+        emp.listar();
+
+        System.out.println("---");
+        
+        try {
+            emp.demitir(e);
         }
-
-        if (!(a.getAutenticado())) {
-            SistemaInterno.login((Autenticavel) a);
+        catch(ObjectNotFoundException ex) {
+            System.out.println(ex.getMessage());
         }
-
-        if (a.getAutenticado()) {
-            System.out.println("Usuário autenticado!");
-        }
+        emp.listar();
 
     }
 }
